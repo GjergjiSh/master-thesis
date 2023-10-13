@@ -1,0 +1,69 @@
+# Define the OpenAPI version
+openapi: 3.0.0
+
+# Define general information about the API
+info:
+  title: Sensor Data Analysis App API
+  version: 1.0.0
+
+# Define the server(s) where the API is hosted
+servers:
+  - url: http://localhost:8000
+
+# Define the available paths and operations for the API
+paths:
+  /sensor_data:
+    # Define the GET operation for the /sensor_data path
+    get:
+      summary: Get all sensor data
+      responses:
+        '200':
+          description: OK
+
+    # Define the POST operation for the /sensor_data path
+    post:
+      summary: Create a new sensor data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SensorData'
+      responses:
+        '201':
+          description: Created
+
+    # Define the PUT operation for the /sensor_data path
+    put:
+      summary: Update an existing sensor data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SensorData'
+      responses:
+        '200':
+          description: OK
+
+    # Define the DELETE operation for the /sensor_data path
+    delete:
+      summary: Delete an existing sensor data entry
+      responses:
+        '204':
+          description: No Content
+
+# Define reusable components for the API
+components:
+  schemas:
+    # Define the SensorData model schema
+    SensorData:
+      type: object
+      properties:
+        id:
+          type: integer
+        timestamp:
+          type: string
+          format: date-time
+        value:
+          type: number

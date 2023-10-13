@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+  version: '1'
+  title: Family API
+  description: Basic API Specification
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/GJERGJISHKURTI/Family/1
+tags:
+  - name: Children
+    description: Endpoints related to managing child records.
+  - name: Parents
+    description: Endpoints related to managing parent records.
+    
+security:
+  - prod: []
+    
+paths:
+  /children/:
+    post:
+      tags:
+        - Children
+      requestBody:
+        $ref: '#/components/requestBodies/Child'
+      summary: Adds a new child
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+    get:
+      tags:
+        - Children
+      summary: Returns all available children
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Child'
+                      
+  /children/{cid}:
+    parameters:
+      - $ref: '#/components/parameters/Cid'
+    get:
+      tags:
+        - Children
+      summary: Returns the child with the provided id
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Child'
+        '404':
+          description: Child not found
+    put:
+      tags:
+        - Children
+      summary: Updates the child with the provided id
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Child'
+        '404':
+          description: Child not found
+    delete:
+      tags:
+        - Children
+      summary: Deletes the child with the provided id
+      responses:
+        '404':
+          description: Child not found
+        '200':
+          description: Successful operation
+  
+  /parents/{pid}:
+    parameters:
+      - $ref: '#/components/parameters/Pid'
+    get:
+      tags:
+        - Parents
+      summary: Returns the parent with the provided id
+      operationId: getParent
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parent'
+        '404':
+          description: Parent not found
+
+components:
+  parameters:
+    Cid:
+      name: cid
+      in: path
+      required: true
+      schema: 
+        type: integer
+      description: Child id
+      
+    Pid:
+      name: pid
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Parent id
+
+  requestBodies:
+    Child:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Child'
+            
+  responses:
+    Child:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Child'
+    Parent:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Parent'
+            
+  headers:
+    Location:
+      description: URI of the newly created resource
+      schema:
+        type: string
+        format: uri
+    
+  schemas:
+    Child:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          maxLength: 20
+          example: Child 1
+        parent:
+          type: integer
+          example: 42
+          
+    Parent:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          maxLength: 20
+          example: Parent 1
+          
+  securitySchemes:
+    prod: 
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication is used to secure this API. Obtain a valid JWT token through the authentication service.
