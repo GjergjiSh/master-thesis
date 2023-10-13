@@ -1,11 +1,11 @@
 <mxfile host="65bd71144e">
     <diagram id="eTaow8UW6Wc9Y_zy_YHm" name="context">
-        <mxGraphModel dx="1295" dy="912" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="999900" pageHeight="9999900" math="0" shadow="0">
+        <mxGraphModel dx="658" dy="796" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="999900" pageHeight="9999900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="OTACom Client SDK" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="812" y="376" width="140" height="60" as="geometry"/>
+                    <mxGeometry x="817" y="399" width="140" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" style="edgeStyle=none;html=1;" parent="1" source="3" target="2" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -13,7 +13,7 @@
                 <mxCell id="12" style="edgeStyle=none;html=1;" parent="1" source="3" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="Generator" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                <mxCell id="3" value="OGenerator" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="603" y="290" width="155" height="155" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" style="edgeStyle=none;html=1;" parent="1" source="4" target="3" edge="1">
@@ -22,14 +22,14 @@
                 <mxCell id="4" value="OpenAPI Specification&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;OAS" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
                     <mxGeometry x="413" y="315" width="140" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="OTACom Server SDK" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="812" y="299" width="143" height="60" as="geometry"/>
+                <mxCell id="11" value="OTACom Server Stubs" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="814" y="259" width="143" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="lfanKAvMomV87y_PvUnI" name="Page-2">
-        <mxGraphModel dx="1295" dy="912" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="999900" pageHeight="9999900" math="0" shadow="0">
+        <mxGraphModel dx="559" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="999900" pageHeight="9999900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -41,6 +41,46 @@
                 </mxCell>
                 <mxCell id="9MVZZGdP7936Ngphpmua-3" value="REST API" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="406" y="653" width="140" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="c0L9QQxUR7Tas41OFxB7" name="Page-4">
+        <mxGraphModel dx="799" dy="967" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="999900" pageHeight="9999900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="490" width="510" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-20" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="375" y="520" width="580" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-9" value="OpenAPI Generator" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="560" width="191.25" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-15" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;dashed=1;" edge="1" parent="1" source="-cenTBEm3t0Qi6ZBWDpl-12" target="-cenTBEm3t0Qi6ZBWDpl-14">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-12" value="OTAComLib" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="443.75" y="560" width="196.25" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-13" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="-cenTBEm3t0Qi6ZBWDpl-9" target="-cenTBEm3t0Qi6ZBWDpl-12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-14" value="REST" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="395" y="390" width="525" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-16" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="563.75" y="810" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-17" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="721.25" y="810" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="-cenTBEm3t0Qi6ZBWDpl-21" value="App" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="627.5" y="690" width="60" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
