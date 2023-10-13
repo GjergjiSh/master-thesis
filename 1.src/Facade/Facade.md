@@ -43,13 +43,6 @@ Facade::Facade() {
     // Initialize the http client
     this->httpClient = new HttpClient();
     this->actors = ActorFactory::InitializeActors();
-
-    // Ideally I would like to do:
-    actor.SetHttp2Method(Http2Method::GET);
-
-    actor.SetCallback("http://localhost:8000/sensor_data", Facade::get_sensor_data);
-    actor.SetCallback("http://localhost:8000/sensor_data", Facade::post_sensor_data);
-    actor.SetCallback("http://localhost:8000/sensor_data", Facade::put_sensor_data);
 }
 
 
