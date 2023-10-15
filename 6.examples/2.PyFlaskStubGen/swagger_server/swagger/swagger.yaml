@@ -1,0 +1,228 @@
+openapi: 3.0.0
+info:
+  title: Family API
+  description: Basic API Specification
+  version: "1"
+servers:
+- url: https://localhost/GJERGJISHKURTI/Family/1
+  description: SwaggerHub API Auto Mocking
+security:
+- prod: []
+tags:
+- name: Children
+  description: Endpoints related to managing child records.
+- name: Parents
+  description: Endpoints related to managing parent records.
+paths:
+  /children/:
+    get:
+      tags:
+      - Children
+      summary: Returns all available children
+      operationId: children_get
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Child'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.children_controller
+    post:
+      tags:
+      - Children
+      summary: Adds a new child
+      operationId: children_post
+      requestBody:
+        $ref: '#/components/requestBodies/Child'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+      x-openapi-router-controller: swagger_server.controllers.children_controller
+  /children/{cid}:
+    get:
+      tags:
+      - Children
+      summary: Returns the child with the provided id
+      operationId: children_cid_get
+      parameters:
+      - name: cid
+        in: path
+        description: Child id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Child'
+        "404":
+          description: Child not found
+      x-openapi-router-controller: swagger_server.controllers.children_controller
+    put:
+      tags:
+      - Children
+      summary: Updates the child with the provided id
+      operationId: children_cid_put
+      parameters:
+      - name: cid
+        in: path
+        description: Child id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Child'
+        "404":
+          description: Child not found
+      x-openapi-router-controller: swagger_server.controllers.children_controller
+    delete:
+      tags:
+      - Children
+      summary: Deletes the child with the provided id
+      operationId: children_cid_delete
+      parameters:
+      - name: cid
+        in: path
+        description: Child id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Successful operation
+        "404":
+          description: Child not found
+      x-openapi-router-controller: swagger_server.controllers.children_controller
+  /parents/{pid}:
+    get:
+      tags:
+      - Parents
+      summary: Returns the parent with the provided id
+      operationId: get_parent
+      parameters:
+      - name: pid
+        in: path
+        description: Parent id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parent'
+        "404":
+          description: Parent not found
+      x-openapi-router-controller: swagger_server.controllers.parents_controller
+components:
+  schemas:
+    Child:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          maxLength: 20
+          type: string
+          example: Child 1
+        parent:
+          type: integer
+          example: 42
+      example:
+        parent: 42
+        name: Child 1
+        id: 1
+    Parent:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          maxLength: 20
+          type: string
+          example: Parent 1
+      example:
+        name: Parent 1
+        id: 1
+  responses:
+    Child:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Child'
+    Parent:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Parent'
+  parameters:
+    Cid:
+      name: cid
+      in: path
+      description: Child id
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: integer
+    Pid:
+      name: pid
+      in: path
+      description: Parent id
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: integer
+  requestBodies:
+    Child:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Child'
+  headers:
+    Location:
+      description: URI of the newly created resource
+      style: simple
+      explode: false
+      schema:
+        type: string
+        format: uri
+  securitySchemes:
+    prod:
+      type: http
+      description: Bearer token authentication is used to secure this API. Obtain
+        a valid JWT token through the authentication service.
+      scheme: bearer
+      bearerFormat: JWT
+      x-bearerInfoFunc: swagger_server.controllers.authorization_controller.check_prod
+
